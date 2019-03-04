@@ -6,5 +6,5 @@ rmd_files: [
   "index.Rmd",
   "setup.Rmd",
   "write.Rmd"]
-delete_merged_file: true
+delete_merged_file: true 
 output_dir: "docs"
