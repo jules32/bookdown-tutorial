@@ -4,6 +4,6 @@ language:
     chapter_name: "Chapter "
 rmd_files: [
   "index.Rmd",
-  "overview.Rmd"]
+  "startup.Rmd"]
 delete_merged_file: true
 output_dir: "docs"
