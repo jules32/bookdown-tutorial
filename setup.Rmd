@@ -1,4 +1,4 @@
-# Bookdown Startup {#startup}
+# Setting up Bookdown {#setup}
 
 The `bookdown` package and [book](https://bookdown.org/yihui/bookdown/get-started.html) is definitely the best way to get started. However, in practice I always find myself copying an existing, working book and modifying it instead of starting from scratch. So this tutorial is going to have you do that as well, using this book as the one you copy from.
 
@@ -15,16 +15,12 @@ You will have to name your book's repository. To differentiate your book's repo 
   - the folder itself (that you just unzipped)
   - the .Rproj file
 1. Double-click the .Rproj file to launch RStudio 
+1. Install packages and restart
+  - `install.packages("bookdown")`  
+  - `install.packages("usethis")`  
+  - Use the menu item Session > Restart R   
 1. Click on the Build tab in the top right pane
 1. Click on Build Book! 
-
-### Troubleshooting: 
-
-No Build tab? We'll need to install bookdown: 
-
-`install.packages("bookdown")`  
-`install.packages("usethis")`  
-Use the menu item Session > Restart R   
 
 Nice job! Now let's make it yours, and connect it to GitHub.
 
