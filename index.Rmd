@@ -1,5 +1,5 @@
 --- 
-title: "Openscapes Champions Series"
+title: "Making free books with RStudio’s RMarkdown & Bookdown"
 author: "Julie Lowndes"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -9,92 +9,35 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: openscapes/series
-description: "This is the official lesson series for the Openscapes Champions program."
+description: "A mini bookdown tutorial book on how to make bookdown books."
 ---
 
 # Welcome {#welcome}
 
-This book is a lesson series for the Openscapes Champions program. ***It is under heavy development; some chapters are only notes at this point***.
+It's possible to create beautiful books for free using [RStudio's R Markdown](http://rmarkdown.rstudio.com/) and Yihui Xie's [bookdown](https://bookdown.org/yihui/bookdown/) and hosting them on [Github](http://github.com). This is pretty new and incredibly cool. It is a really powerful way to communicate science using the same reproducible workflow you use for your analyses and collaborations.
 
-Openscapes Champions is a mentorship program that empowers environmental scientists with open data science tools and grows the community of practice. We mentor early career environmental researchers in leadership roles – faculty, lecturers, program managers, and others who want to establish open data science practices in their labs and on their campuses. It is designed to meet scientists where they are and help identify incremental steps to make their data workflows more efficient and open. We've been building Openscapes from an open data science angle, but along with that comes the mindset of openness, collaboration, good intentions, and creating the culture we want in science. Note: "lab" is broadly defined. 
+This tutorial borrows heavily from a lot of great tutorials and resources you should check out too -- there are links throughout. It also parallels a previous tutorial [Making free websites with RStudio’s R Markdown](https://jules32.github.io/rmarkdown-website-tutorial/)
 
-The Series is framed around [Lowndes *et al. 2017, Nature Ecology & Evolution*: Our path to better science in less time using open data science tools](https://www.nature.com/articles/s41559-017-0160). That paper is a retrospective of how a team's data workflow changed over four years; the Openscapes Series aims to help guide other labs to incrementally make similar progress themselves, no matter where they are starting from. 
+The best way to learn is to follow along with your own laptop, but all are welcome. We'll spend half the time with the tutorial and half the time for you to work on your own website and get help. If you bring your laptop please do this beforehand: 
 
-----
-
-## Agendas
-
-The first half of the Series focuses on efficiency and open culture within the lab, and the second half is about sustained learning and bringing these practices to the broader campus community. This Series is taught over a five-month period, with two Cohort Calls each month with Champions and their lab members. Calls are designed to be engaging, requiring discussion and participation through Google Docs and Zoom (group and breakouts). 
-
-Call agendas and slides are all available in a [Google Folder](https://drive.google.com/open?id=1HQHXlMVgg9lp2IYkzj8LSAG5bjyKFS6g), and identified individually here:
-
-<br>
-
-Agendas          | Chapters |      Slides
-------------------|----------------------|---------------------------
-[1. Openscapes overview & mindset](https://drive.google.com/open?id=1Ia5-w8KiZgyZqX1ErGnrFihDAUAiAzkZwDfSgZw9BMU) | [overview](#overview), [mindset](#mindset) |  [overview](https://docs.google.com/presentation/d/1SWjccZAzLC3IPpcmgeQiSdCdbwq_UF5DVEJQEN8ngdA/edit?usp=sharing), [mindset](https://docs.google.com/presentation/d/1SWjccZAzLC3IPpcmgeQiSdCdbwq_UF5DVEJQEN8ngdA/edit?usp=sharing) 
-[2. Better science in less time](https://docs.google.com/document/d/1F4fatp_PLMEm6XbinxZDQjOQ8w1HYSAegmftM4Cm4E8/edit?usp=sharing) | [better science in less time](#bsilt) | [better science in less time](https://docs.google.com/presentation/d/1RGdNNZwqR74wf1d2XPUwqiaxGVtUnn58awJcEqQ_YHs/edit?usp=sharing), [data interlude](https://docs.google.com/presentation/d/1YnHR1OqtpH4LkVaNBF8LhLGPUUx7mDysw4YAR7mKKfE/edit?usp=sharing) 
-[3. Lab culture](https://docs.google.com/document/d/1zY-hzebfb7KdwxQ8e4DO_SaaufocmjKEe7HjFw8ThZY/edit?usp=sharing) | [lab culture](#lab-culture), [code of conduct](code-of-conduct) | [lab culture](https://docs.google.com/presentation/d/1QlzV7wjP20GoLwpwUmEfBb_y4AuZnJgU_foI564FhXo/edit?usp=sharing), [code of conduct](https://docs.google.com/presentation/d/1eydm6NcrR_T2NwoMWYBWM682OW-qr755iYemVWL8cJg/edit?usp=sharing)
-[4. GitHub for the lab](https://docs.google.com/document/d/1Y8_5EFbsaaH26LvqXc5NZZ66Np4JQWuSemQbCrNIjSY/edit?usp=sharing) |  [GitHub for publishing](#github-pub),  [GitHub for project management](#github-issues) | [GitHub for publishing](https://docs.google.com/presentation/d/1lTUAL1vO95dyjcONIWDineAWyEP92pNjFvXAM6u9y5Y/edit?usp=sharing), [GitHub for project management](https://docs.google.com/presentation/d/1JGFnZqz01Ex8h2qO3OBUHc1OiTFkAqV2ED2XFiMdN4I/edit?usp=sharing)
-5. Community coding practices | | 
-6. Mid-series check in | | 
-7. Study Groups | | 
-8. R for science communication | | 
-9. TBD | | 
-10. Present Interview Q’s & Workflow Map | | 
-
-<br>
+1. install [RStudio](https://www.rstudio.com/products/rstudio/download/)
+1. create a [GitHub]((http://github.com)) account ([advice](http://happygitwithr.com/github-acct.html))
+1. set up your computer to talk to GitHub
+    - have RStudio linked directly (highly recommended) ([instructions sections 8-14](http://happygitwithr.com/hello-git.html))
+    - or install the [Desktop App](https://desktop.github.com/)
+    - or be familiar with git commands for the command line ([tutorial](https://try.github.io/levels/1/challenges/1))
 
 ----
 
-The Series is written (and always improving) to be used as a reference, to teach, or as self-paced learning. And also, awesomely, it's created with the same tools and practices we will be talking about: R and RStudio — specifially [bookdown](https://bookdown.org/yihui/bookdown/) — and GitHub.
 
-[Openscapes](https://openscapes.org) is operated by the National Center for Ecological Analysis & Synthesis ([NCEAS](https://www.nceas.ucsb.edu/)) and is being incubated by a [Mozilla](https://foundation.mozilla.org/en/) Fellowship awarded to [Julia Stewart Lowndes](http://jules32.github.io).
+**Examples:**
 
-<!---
-resize:
-![](img/openscapes_hex_design_final_correct_dimensions.png)
-Before you begin, be sure you are all set up: see the prerequisites in Chapter \@ref(overview). 
+We have been using bookdown for the Ocean Health Index:  [**ohi-science.org/data-science-training**](http://ohi-science.org/data-science-training) and Openscapes: [**openscapes.org/series**](https://openscapes.org/series).  
+And R Markdown is much more than books and websites -- here's a [**one-minute video about R Markdown**](http://rmarkdown.rstudio.com/lesson-1.html) to get you excited. 
 
+----
 
+## Learn all about Bookdown
 
-
-
-Mentee topic
-Cohort Call topic
-Assignment
-Table 1
-1. Openscapes mindset
-read Lowndes et al 2017
-2. Better science in less time
-Seaside chat, Table 1
-Lab culture
-3. Lab culture
-Code of conduct
-4. Github for your lab
-Code of conduct on Github
-Coding practices
-5. R community practices, packages efficiency tour
-
-
-6. Mid-series check in
-
-
-Community
-7. Study Groups
-Start a study group
-
-
-8. 
-
-
-
-
-9. Amplify
-
-
-
-
-10. Share
---->
+The best way to learn more about bookdown is from Yihui himself. You can read his book [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/) or watch his webinar [introducing bookdown](https://www.rstudio.com/resources/webinars/introducing-bookdown/).
 
