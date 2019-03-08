@@ -31,7 +31,7 @@ Nice job! Now let's make it yours, and connect it to GitHub.
 1. Name this new repo "awesome-book"
 1. DO NOT initialize this repo with a README
 1. Click the green "create repository" button — this will take you to your new repo
-1. Click the green "clone or download" button and COPY URL
+1. Click the tiny "clone or download" button near the top and COPY URL
 
 ## Turn "bookdown-tutorial" into "awesome-book"
 
